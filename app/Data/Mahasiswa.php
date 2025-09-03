@@ -12,7 +12,7 @@ class Mahasiswa
     }
 
     
-    public function info(): string
+    public function namaKelas(): string
     {
         return $this->kelas->info();
     }

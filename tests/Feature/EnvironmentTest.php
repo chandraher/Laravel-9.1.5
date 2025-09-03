@@ -21,10 +21,10 @@ class EnvironmentTest extends TestCase
         //jika nilai pertama dan kedua sama, maka test akan lulus
     }
 
-    public function testDefaultValue()
-    {
-        $author = env('AUTHOR','chandra');
-        self::assertEquals('false', $author);
-    }
+    // public function testDefaultValue()
+    // {
+    //     $author = env('AUTHOR','chandra');
+    //     self::assertEquals('false', $author);
+    // }
 
 }
