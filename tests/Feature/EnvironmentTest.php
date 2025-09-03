@@ -21,10 +21,10 @@ class EnvironmentTest extends TestCase
         //jika nilai pertama dan kedua sama, maka test akan lulus
     }
 
-    // public function test_example()
-    // {
-    //     $response = $this->get('/');
+    public function testDefaultValue()
+    {
+        $author = env('AUTHOR','chandra');
+        self::assertEquals('false', $author);
+    }
 
-    //     $response->assertStatus(200);
-    // }
 }
