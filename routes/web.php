@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HelloController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -87,3 +87,6 @@ Route::get('/conflict/chandra', function () {
 Route::get('product/{id}', function ($id) {
     return redirect()->route('product.detail', ['id' => $id]);
 });
+
+//integrasi controller
+Route::get('/controller/hello/{name}', [HelloController::class, 'hello']);
