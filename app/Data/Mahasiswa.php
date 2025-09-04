@@ -4,7 +4,7 @@ namespace App\Data;
 
 class Mahasiswa
 {
-    private Kelas $kelas;
+    public Kelas $kelas;
 
     public function __construct(Kelas $kelas)
     {
