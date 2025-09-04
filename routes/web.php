@@ -67,11 +67,10 @@ Route::get('/product-id/{id}', function ($id) {
 
 //optional route parameter with default value
 Route::get('/product/{id?}', function (string $userId = "404") {
-    return "product id : " . $userId;
-}); 
+    return "product detail id : " . $userId;
+})->name('product.detail'); 
 
-//conflict
-
+//test route conflict
 Route::get('/conflict/{name}', function (string $name) {
     return "conflict 2 : " . $name;
 });
@@ -84,3 +83,7 @@ Route::get('/conflict/chandra', function () {
     return "conflict chandra";
 });
     
+//named router
+Route::get('product/{id}', function ($id) {
+    return redirect()->route('product.detail', ['id' => $id]);
+});
