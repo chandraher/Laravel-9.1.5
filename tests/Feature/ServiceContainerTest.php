@@ -73,7 +73,7 @@ class ServiceContainerTest extends TestCase
         $kelas = $this->app->make(Kelas::class);
         $mahasiswa = $this->app->make(Mahasiswa::class);
 
-        self::assertNotSame($kelas, $mahasiswa->kelas);
+        self::assertNotSame($kelas, $mahasiswa->kelas);//memast
       
     }
 
@@ -85,7 +85,7 @@ class ServiceContainerTest extends TestCase
         $kelas = $this->app->make(Kelas::class);
         $mahasiswa = $this->app->make(Mahasiswa::class);
 
-        self::assertSame($kelas, $mahasiswa->kelas);
+        self::assertSame($kelas, $mahasiswa->kelas);//memastikan object sama
       
     }
 
