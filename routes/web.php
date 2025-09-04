@@ -44,5 +44,43 @@ Route::get('/hello-again', function () {
 Route::view('/hello-world', 'hello.world', ['world' => 'Tangerang', 'name' => 'chandra']);
 
 //Route::get(): Digunakan untuk halaman dinamis yang memerlukan logika, pemrosesan data, atau pengambilan data dari database sebelum menampilkan halaman.
-
 //Route::view(): Digunakan sebagai jalan pintas (shortcut) untuk halaman statis yang sama sekali tidak memerlukan logika atau data dari database.
+
+///////
+
+//ROUTE PARAMETER with if else
+Route::get('/hello-route/{id}', function ($id) {
+    if($id == "1") {
+        $id = "chandra";
+    }
+    return "hello " . $id;
+});
+
+Route::get('/hello-route/{product}/items/{item}', function ($product,$item) {
+    return "hello " . $product . " " . $item;
+});   
+
+//route parameter with reguler expression
+Route::get('/product-id/{id}', function ($id) {
+    return "product id : " . $id;
+})->where('id', '[0-9]+');
+
+//optional route parameter with default value
+Route::get('/product/{id?}', function (string $userId = "404") {
+    return "product id : " . $userId;
+}); 
+
+//conflict
+
+Route::get('/conflict/{name}', function (string $name) {
+    return "conflict 2 : " . $name;
+});
+
+Route::get('/conflict/{name}', function (string $name) {
+    return "conflict 1: " . $name;
+});
+
+Route::get('/conflict/chandra', function () {
+    return "conflict chandra";
+});
+    
