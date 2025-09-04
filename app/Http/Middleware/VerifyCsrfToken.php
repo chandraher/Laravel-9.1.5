@@ -11,7 +11,8 @@ class VerifyCsrfToken extends Middleware
      *
      * @var array<int, string>
      */
+    //Protect from csrf semua akses dengan input di ignore
     protected $except = [
-        //
+        '/input/*'
     ];
 }
