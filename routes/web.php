@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
+use App\Http\Controllers\InputController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,3 +91,19 @@ Route::get('product/{id}', function ($id) {
 
 //integrasi controller
 Route::get('/controller/hello/{name}', [HelloController::class, 'hello']);
+
+//inputcontroller request input
+//method get http://localhost:8000/input/hello?name=chandra
+Route::get('/input/hello', [InputController::class, 'helloInputGet']); 
+
+//method post menggunakan request Body
+Route::post('/input/hello', [InputController::class, 'helloInputPost']); 
+
+//method post nested
+Route::post('/input/hello/nested', [InputController::class, 'helloNested']);
+
+//getnested all
+Route::post('/input/hello/nested-all', [InputController::class, 'helloInputPostAll']);
+
+//get nested array by name
+Route::post('/input/hello/nested-array', [InputController::class, 'getInputAllProductArray']);
