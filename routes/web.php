@@ -42,3 +42,7 @@ Route::get('/hello-again', function () {
 
 //nested
 Route::view('/hello-world', 'hello.world', ['world' => 'Tangerang', 'name' => 'chandra']);
+
+//Route::get(): Digunakan untuk halaman dinamis yang memerlukan logika, pemrosesan data, atau pengambilan data dari database sebelum menampilkan halaman.
+
+//Route::view(): Digunakan sebagai jalan pintas (shortcut) untuk halaman statis yang sama sekali tidak memerlukan logika atau data dari database.
