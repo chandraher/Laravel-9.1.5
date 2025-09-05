@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HelloController;
 use App\Http\Controllers\InputController;
+use App\Http\Controllers\PersonController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -107,3 +108,14 @@ Route::post('/input/hello/nested-all', [InputController::class, 'helloInputPostA
 
 //get nested array by name
 Route::post('/input/hello/nested-array', [InputController::class, 'getInputAllProductArray']);
+
+// Person API Routes - JSON responses only
+Route::prefix('api/persons')->group(function () {
+    Route::get('/', [PersonController::class, 'index']); // GET /api/persons - Get all persons
+    Route::post('/', [PersonController::class, 'store']); // POST /api/persons - Create new person
+    Route::get('/search', [PersonController::class, 'search']); // GET /api/persons/search?name=xxx - Search persons
+    Route::get('/statistics', [PersonController::class, 'statistics']); // GET /api/persons/statistics - Get statistics
+    Route::get('/{id}', [PersonController::class, 'show']); // GET /api/persons/{id} - Get person by ID
+    Route::put('/{id}', [PersonController::class, 'update']); // PUT /api/persons/{id} - Update person
+    Route::delete('/{id}', [PersonController::class, 'destroy']); // DELETE /api/persons/{id} - Delete person
+});
