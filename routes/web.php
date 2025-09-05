@@ -20,7 +20,7 @@ Route::get('/', function () {
 
 Route::get('/mahasiswa', function () {
     return "nama : chandra";
-});
+})->middleware('contoh');
 
 //redirect
 route::redirect('/unpam', '/mahasiswas');
