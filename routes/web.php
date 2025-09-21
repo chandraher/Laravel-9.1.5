@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//middleware berdasarkan route
 Route::get('/mahasiswa', function () {
     return "nama : chandra";
 })->middleware('contoh');
