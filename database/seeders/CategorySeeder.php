@@ -28,7 +28,7 @@ class CategorySeeder extends Seeder
                 "name" => "Macbook Pro",
                 "description" => "New Macbook Pro 2025",
                 "created_at" => now(),
-            ],
+            ]
         ]);
     }
 }

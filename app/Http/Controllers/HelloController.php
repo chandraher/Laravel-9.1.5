@@ -18,4 +18,10 @@ class HelloController extends Controller
     {
         return $this->helloService->hello($name);
     }
+
+    public function helloView(string $name)
+    {
+        $message = $this->helloService->hello($name);
+        return view('hello', ['name' => $name, 'message' => $message]);
+    }
 }

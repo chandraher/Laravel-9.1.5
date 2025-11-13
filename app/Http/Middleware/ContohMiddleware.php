@@ -19,13 +19,11 @@ class ContohMiddleware
      //bisa ke middleware selanjutnya atau ke controller
     public function handle(Request $request, Closure $next)
     {
-        $apiKey = $request->header('X-API-Key');
-        if($apiKey != '123') {
-            return response()->json([
-                'message' => 'Unauthorized'
-            ], 401);
-            return response("access denied",401);
-        }
-        return $next($request);
+       $age = $request->route('age');
+       if($age < 18) {
+        abort(403,"anda tidak boleh masuk");
+       }
+       return $next($request);
     }
 }
+//app - Http - Middleware - ContohMiddleware.php
